@@ -19,3 +19,6 @@ QUERY SVOLTE:
 5) SELECT `users`.`id`, `users`.`username`, COUNT(`likes`.`user_id`) AS `num_likes` FROM `users` LEFT JOIN `posts` ON `posts`.`user_id` = `users`.`id` LEFT JOIN `likes` ON `likes`.`user_id` = `users`.`id` AND `likes`.`post_id` = `posts`.`id` GROUP BY `users`.`username` ORDER BY `num_likes` DESC;
 6) SELECT `posts`.`id`, `posts`.`title`, YEAR(CURRENT_DATE()) - YEAR(`users`.`birthdate`) - (RIGHT(CURRENT_DATE(), 5) < RIGHT(`users`.`birthdate`, 5)) AS `years` FROM `posts` LEFT JOIN `users` ON `posts`.`user_id` = `users`.`id` WHERE YEAR(CURRENT_DATE()) - YEAR(`users`.`birthdate`) - (RIGHT(CURRENT_DATE(), 5) < RIGHT(`users`.`birthdate`, 5)) BETWEEN 20 AND 30;
 7) SELECT `users`.`id`, `users`.`username`, COUNT(`posts`.`user_id`) AS `num_posts`, COUNT(`medias`.`user_id`) AS `num_media` FROM `users` LEFT JOIN `posts` ON `posts`.`user_id` = `users`.`id` LEFT JOIN `medias` ON `medias`.`user_id` = `users`.`id` GROUP BY `users`.`username`;
+
+BONUS: 
+8) SELECT * FROM `posts` WHERE JSON_CONTAINS(tags, '"serata"');
