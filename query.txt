@@ -22,3 +22,4 @@ QUERY SVOLTE:
 
 BONUS: 
 8) SELECT * FROM `posts` WHERE JSON_CONTAINS(tags, '"serata"');
+9) SELECT *, JSON_LENGTH(tags) AS `num_tags` FROM posts ORDER BY `num_tags` DESC;
