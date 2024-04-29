@@ -23,3 +23,4 @@ QUERY SVOLTE:
 BONUS: 
 8) SELECT * FROM `posts` WHERE JSON_CONTAINS(tags, '"serata"');
 9) SELECT *, JSON_LENGTH(tags) AS `num_tags` FROM posts ORDER BY `num_tags` DESC;
+10) SELECT `user_id`, COUNT(*) AS `num_tags_used` FROM `posts` GROUP BY `user_id` ORDER BY `num_tags_used` DESC;
