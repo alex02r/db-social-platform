@@ -13,3 +13,4 @@ BONUS
 
 QUERY SVOLTE:
 1) SELECT *, YEAR(CURRENT_DATE()) - YEAR(`birthdate`) - (RIGHT(CURRENT_DATE(), 5) < RIGHT(`birthdate`, 5)) AS `years` FROM `users`;
+2) SELECT * FROM `posts` LEFT JOIN `likes` ON `likes`.`post_id` = `posts`.`id` WHERE `likes`.`post_id` IS NULL;
